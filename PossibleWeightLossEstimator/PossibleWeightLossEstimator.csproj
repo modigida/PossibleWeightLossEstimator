@@ -12,7 +12,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>PossibleWeightLossEstimator</ApplicationTitle>
+		<ApplicationTitle>estimate weight</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.possibleweightlossestimator</ApplicationId>
