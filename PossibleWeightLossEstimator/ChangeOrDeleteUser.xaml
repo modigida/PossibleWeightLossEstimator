@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PossibleWeightLossEstimator.ChangeOrDeleteUser"
+             Title=" "
+             Background="WhiteSmoke">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="70" />
+        </Grid.RowDefinitions>
+        <VerticalStackLayout Grid.Row="1">
+
+            <Label x:Name="DisplayMessage"
+            Text=" "
+            FontSize="Medium"
+            TextColor="DimGray"
+            HorizontalOptions="Center"
+            VerticalOptions="Start"
+            IsVisible="False"/>
+
+            <VerticalStackLayout>
+                <Label x:Name="UserIdLabel" Text="User ID: " FontSize="Medium" HorizontalOptions="Center" TextColor="DimGray"/>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Label Text="Body Weight: " FontSize="Medium" VerticalOptions="Center" TextColor="DimGray"/>
+                    <Entry x:Name="BodyWeightEntry" Placeholder=" " FontSize="Medium" WidthRequest="40" TextColor="DimGray"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <Button x:Name="EditBtn"
+                Text="Edit"
+                Clicked="OnEditClicked"
+                VerticalOptions="End"
+                HorizontalOptions="Center"
+                Margin="0,10"/>
+        </VerticalStackLayout>
+        
+        <Button x:Name="DeleteUserBtn"
+            Text="Delete user"
+            Clicked="OnDeleteUserClicked"
+            VerticalOptions="End"
+            HorizontalOptions="Center"
+            Grid.Row="2"
+            Margin="0,10"/>
+    </Grid>
+</ContentPage>

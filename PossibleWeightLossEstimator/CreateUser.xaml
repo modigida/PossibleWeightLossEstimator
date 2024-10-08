@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PossibleWeightLossEstimator.CreateUser"
+             Title=" "
+             BackgroundColor="WhiteSmoke">
+    <VerticalStackLayout
+        VerticalOptions="CenterAndExpand"
+        HorizontalOptions="Center">
+        <Label x:Name="DisplayMessage"
+            Text=" "
+            FontSize="Medium"
+            TextColor="DimGray"
+            HorizontalOptions="Center"
+            VerticalOptions="Start"
+            IsVisible="False"/>
+        <Entry
+            x:Name="BodyWeightEntry"
+            Placeholder="Enter body weight in KG"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Button
+            x:Name="CreateUserBtn"
+            Text="Create user"
+            Clicked="OnCreateUserClicked"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>
