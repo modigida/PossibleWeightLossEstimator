@@ -6,140 +6,190 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="70" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        
-        <Label x:Name="DisplayMessage"
-           Text=" "
-           FontSize="Medium"
-           TextColor="DimGray"
-           HorizontalOptions="Center"
-           VerticalOptions="Start"
-           IsVisible="False"/>
 
-        <VerticalStackLayout Grid.Row="1" Margin="0,10,0,10">
-            <Label Text="Weeks"
+        <Grid Grid.Row="0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="55"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="55"/>
+            </Grid.ColumnDefinitions>
+            
+            <Label 
+                x:Name="DisplayMessage"
+                Text="This is my DisplayMessage"
+                FontSize="Medium"
+                FontFamily="serif"
+                TextColor="#26320c"
+                Grid.Column="1"
                 HorizontalOptions="Center"
-                FontSize="Medium"/>
+                VerticalOptions="Center"
+                IsVisible="False"/>
+            
+            <Button 
+                x:Name="EditUserBtn"
+                Text="Edit"
+                FontFamily="serif"
+                TextColor="#26320c"
+                BorderColor="#26320c"
+                Clicked="OnEditUserClicked"
+                Grid.Column="2"
+                HorizontalOptions="End"
+                Margin="10"
+                WidthRequest="55"/>
+
+        </Grid>
+        
+        <VerticalStackLayout Grid.Row="1" Margin="0,10,0,10" VerticalOptions="CenterAndExpand">
+            
+            <Label Text="weeks"
+                HorizontalOptions="Center"
+                FontSize="Medium"
+                FontFamily="serif"
+                TextColor="#26320c"/>
+            
             <Grid ColumnDefinitions="*,*,*,*,*,*,*,*,*,*,*,*,*"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="Center"
                 Margin="0,-20,0,20">
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="0"/>
+                
                 <Label Text="4" 
                     FontSize="Medium"
                     HorizontalOptions="Center"
                     Grid.Column="0"
                     Margin="0,40,0,0"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="1"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="2"/>
+                
                 <Label Text="12" 
                     FontSize="Medium"
                     HorizontalOptions="Center"
                     Grid.Column="2"
                     Margin="0,40,0,0"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="3"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="4"/>
+                
                 <Label Text="20" 
                     FontSize="Medium"
                     HorizontalOptions="Center"
                     Grid.Column="4"
                     Margin="0,40,0,0"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="5"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="6"/>
+                
                 <Label Text="28" 
                     FontSize="Medium"
                     HorizontalOptions="Center"
                     Grid.Column="6"
                     Margin="0,40,0,0"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="7"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="8"/>
+                
                 <Label Text="36" 
                     FontSize="Medium"
                     HorizontalOptions="Center"
                     Grid.Column="8"
                     Margin="0,40,0,0"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="9"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="10"/>
+                
                 <Label Text="44" 
                     FontSize="Medium"
                     HorizontalOptions="Center"
                     Grid.Column="10"
                     Margin="0,40,0,0"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="11"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="12"/>
+                
                 <Label Text="52" 
                     FontSize="Medium"
                     HorizontalOptions="Center"
                     Grid.Column="12"
                     Margin="0,40,0,0"/>
+                
                 <Slider x:Name="weekSlider"
                     Minimum="4"
                     Maximum="52"
@@ -149,131 +199,157 @@
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     MinimumTrackColor="#80AAAAAA"
+                    ThumbColor="#26320c"
                     WidthRequest="365"/>
             </Grid>
 
 
-            <Label Text="KG"
+            <Label Text="kg"
                 HorizontalOptions="Center"
-                FontSize="Medium"/>
+                FontSize="Medium"
+                FontFamily="serif"
+                TextColor="#26320c"/>
+            
             <Grid ColumnDefinitions="*,*,*,*,*,*,*,*,*,*,*,*,*"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="Center"
                 Margin="0,-20,0,20">
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="0"/>
+                
                 <Label Text="0" 
                     FontSize="Medium"
                     HorizontalOptions="Center"
                     Grid.Column="0"
                     Margin="0,40,0,0"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="1"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="2"/>
+                
                 <Label Text="5" 
                     FontSize="Medium"
                     HorizontalOptions="Center"
                     Grid.Column="2"
                     Margin="0,40,0,0"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="3"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="4"/>
+                
                 <Label Text="10" 
                     FontSize="Medium"
                     HorizontalOptions="Center"
                     Grid.Column="4"
                     Margin="0,40,0,0"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="5"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="6"/>
+                
                 <Label Text="15" 
                     FontSize="Medium"
                     HorizontalOptions="Center"
                     Grid.Column="6"
                     Margin="0,40,0,0"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="7"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="8"/>
+                
                 <Label Text="20" 
                     FontSize="Medium"
                     HorizontalOptions="Center"
                     Grid.Column="8"
                     Margin="0,40,0,0"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="9"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="10"/>
+                
                 <Label Text="25" 
                     FontSize="Medium"
                     HorizontalOptions="Center"
                     Grid.Column="10"
                     Margin="0,40,0,0"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="11"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="12"/>
+                
                 <Label Text="30" 
                     FontSize="Medium"
                     HorizontalOptions="Center"
                     Grid.Column="12"
                     Margin="0,40,0,0"/>
-                <Slider x:Name="kgSlider"
+                
+                <Slider 
+                    x:Name="kgSlider"
                     Minimum="0"
                     Maximum="30"
                     Value="0"
@@ -282,33 +358,41 @@
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     MinimumTrackColor="#80AAAAAA"
+                    ThumbColor="#26320c"
                     WidthRequest="365"/>
             </Grid>
 
-            <Label Text="Deficit level"
+            <Label Text="calorie deficit level"
                 HorizontalOptions="Center"
-                FontSize="Medium"/>
+                FontSize="Medium"
+                FontFamily="serif"
+                TextColor="#26320c"/>
+            
             <Grid ColumnDefinitions="*,*,*"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="Center">
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="0"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="1"/>
+                
                 <BoxView WidthRequest="1"
                     HeightRequest="10"
                     Color="Gray"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Grid.Column="2"/>
+                
                 <Slider x:Name="deficitSlider"
                     Minimum="1"
                     Maximum="3"
@@ -317,7 +401,8 @@
                     Grid.ColumnSpan="3"
                     VerticalOptions="Center"
                     WidthRequest="270"
-                    MinimumTrackColor="#80AAAAAA"/>
+                    MinimumTrackColor="#80AAAAAA"
+                    ThumbColor="#26320c"/>
             </Grid>
 
             <Grid ColumnDefinitions="*,*,*"
@@ -337,22 +422,20 @@
                     Grid.Column="2"/>
             </Grid>
 
-            <Button x:Name="SaveSettingsBtn"
-                Text="Save"
-                Clicked="OnSaveSettingsClicked"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                Margin="0,10"/>
         </VerticalStackLayout>
-        
-        <Button x:Name="EditUserBtn"
-            Text="Edit user"
-            Clicked="OnEditUserClicked"
-            Grid.Row="2"
+
+        <Button 
+            x:Name="SaveSettingsBtn"
+            Text="Save"
+            FontFamily="serif"
+            TextColor="#26320c"
+            BorderColor="#26320c"
+            Clicked="OnSaveSettingsClicked"
             VerticalOptions="End"
             HorizontalOptions="Center"
-            Margin="0,10"/>
+            Margin="10"
+            WidthRequest="250"
+            Grid.Row="2"/>
 
     </Grid>
-
 </ContentPage>

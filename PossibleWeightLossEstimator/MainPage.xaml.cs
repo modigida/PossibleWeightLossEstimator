@@ -153,5 +153,6 @@ namespace PossibleWeightLossEstimator
         {
             await Navigation.PushAsync(new ChangeOrDeleteUser(this.user));
         }
+
     }
 }
