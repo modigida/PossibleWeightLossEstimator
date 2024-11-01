@@ -32,13 +32,17 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\apple.svg" />
+		<MauiIcon Include="Resources\AppIcon\weight.svg" BaseSize="128,128" />
+		
 		<!-- <MauiIcon Include="Resources\Raw\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" /> -->
 
 		<!-- Splash Screen -->
 		<!-- <MauiSplashScreen Include="Resources\Raw\splash.svg" Color="#512BD4" BaseSize="128,128" /> -->
 		<!-- <MauiSplashScreen Include="Resources\Raw\magnolia.jpg" BaseSize="768,1024" /> -->
-		<MauiSplashScreen Include="Resources\Splash\apple.jpg" Color="White" />
+		<MauiSplashScreen Remove="Resources\Raw\apple.jpg" Color="White" />
+		<MauiSplashScreen Include="Resources\Splash\weight.jpg" Color="White" >
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</MauiSplashScreen>
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -52,9 +56,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	<MauiIcon Remove="Resources\Raw\apple.svg" />
 	  <None Remove="Resources\AppIcon\apple.svg" />
+	  <None Remove="Resources\AppIcon\weight.svg" />
 	  <None Remove="Resources\Splash\apple.jpg" />
 	  <None Remove="Resources\Splash\magnolia.jpg" />
+	  <None Remove="Resources\Splash\weight.jpg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiIcon Include="Resources\AppIcon\weight.svg">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiIcon>
 	</ItemGroup>
 
 	<ItemGroup>
