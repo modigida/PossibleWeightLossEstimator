@@ -40,7 +40,7 @@
 		<!-- <MauiSplashScreen Include="Resources\Raw\splash.svg" Color="#512BD4" BaseSize="128,128" /> -->
 		<!-- <MauiSplashScreen Include="Resources\Raw\magnolia.jpg" BaseSize="768,1024" /> -->
 		<MauiSplashScreen Remove="Resources\Raw\apple.jpg" Color="White" />
-		<MauiSplashScreen Include="Resources\Splash\weight.jpg" Color="White" >
+		<MauiSplashScreen Include="Resources\Splash\weight.jpg" Color="White">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</MauiSplashScreen>
 

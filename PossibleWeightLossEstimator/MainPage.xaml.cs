@@ -1,4 +1,7 @@
 ﻿
+using System.Globalization;
+using System.Runtime.CompilerServices;
+
 namespace PossibleWeightLossEstimator
 {
     public partial class MainPage : ContentPage
@@ -13,8 +16,9 @@ namespace PossibleWeightLossEstimator
         private bool isUpdating = false;
         public MainPage()
         {
-            
             InitializeComponent();
+
+           
         }
         private async Task GetUser()
         {
@@ -28,13 +32,24 @@ namespace PossibleWeightLossEstimator
         {
             double weeksLeft = weightLossCalculator.GetWeeksForWeightLoss(calorieDeficitLevel, targetWeight);
             double updatedValue = GetNearestAllowedWeekValue(weeksLeft);
+            weeks = weeksLeft;
             weekSlider.Value = updatedValue;
+
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                amountOfWeeksLabel.Text = $"{updatedValue} weeks";
+            });
         }
         private void UpdateKgSlider()
         {
             double weightLoss = weightLossCalculator.GetWeightLoss(calorieDeficitLevel, weeks);
             double updatedValue = GetNearestAllowedKgValue(weightLoss);
             kgSlider.Value = updatedValue;
+
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                amountOfKgLabel.Text = $"{updatedValue} kg";
+            });
         }
         private double GetNearestAllowedKgValue(double value)
         {
@@ -77,7 +92,13 @@ namespace PossibleWeightLossEstimator
             weeks = newValue;
             weekSlider.Value = newValue;
 
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                amountOfWeeksLabel.Text = $"{newValue} weeks";
+            });
+
             UpdateKgSlider();
+            UpdateTargetWeight();
 
             isUpdating = false;
         }
@@ -90,7 +111,13 @@ namespace PossibleWeightLossEstimator
             targetWeight = newValue;
             kgSlider.Value = newValue;
 
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                amountOfKgLabel.Text = $"{newValue} kg";
+            });
+
             UpdateWeekSlider();
+            UpdateTargetWeight();
 
             isUpdating = false;
         }
@@ -104,19 +131,29 @@ namespace PossibleWeightLossEstimator
                 3 => "High",
                 _ => "Unknown"
             };
+
             deficitSlider.Value = roundedValue;
 
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                kcalLabel.Text = $"{calorieDeficitLevel} calorie deficit level";
+            });
+
             UpdateWeekSlider();
+            UpdateTargetWeight();
         }
         protected override async void OnAppearing()
         {
+            base.OnAppearing();
+
+            NavigationPage.SetHasNavigationBar(this, false);
+
             await GetUser();
 
-            base.OnAppearing();
-            NavigationPage.SetHasNavigationBar(this, false);
             if (this.user != null)
             {
                 var settings = await App.DatabaseService.LoadUserSettings(this.user.Id);
+
                 if (settings != null)
                 {
                     weeks = settings.Weeks;
@@ -133,8 +170,33 @@ namespace PossibleWeightLossEstimator
                         "High" => 3,
                         _ => 1
                     };
+
+                    UpdateKgSlider();
+                    UpdateWeekSlider();
+                    UpdateTargetWeight();
+                }
+                else
+                {
+                    targetWeightLabel.Text = $"Currect weight {user.BodyWeight}";
                 }
             }
+        }
+        private void UpdateTargetWeight()
+        {
+            double estimatedWeight = user.BodyWeight - targetWeight;
+            var targetDate = DateTime.Today.AddDays(weeks * 7);
+
+            string daySuffix = targetDate.Day switch
+            {
+                1 or 21 or 31 => "st",
+                2 or 22 => "nd",
+                3 or 23 => "rd",
+                _ => "th"
+            };
+
+            string formattedDate = $"{targetDate.ToString($"MMMM dd'{daySuffix}'")}";
+
+            targetWeightLabel.Text = $"You will reach {estimatedWeight.ToString("f0")} kg by {formattedDate}";
         }
         private async void OnSaveSettingsClicked(object sender, EventArgs e)
         {
@@ -151,8 +213,10 @@ namespace PossibleWeightLossEstimator
         }
         private async void OnEditUserClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ChangeOrDeleteUser(this.user));
+            if (this.user != null)
+            {
+                await Navigation.PushAsync(new ChangeOrDeleteUser(this.user));
+            }
         }
-
     }
 }

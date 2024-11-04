@@ -9,21 +9,29 @@
         HorizontalOptions="Center">
         <Label x:Name="DisplayMessage"
             Text=" "
-            FontSize="Medium"
-            TextColor="DimGray"
+            FontFamily="serif"
+            TextColor="#26320c"
             HorizontalOptions="Center"
             VerticalOptions="Start"
             IsVisible="False"/>
         <Entry
             x:Name="BodyWeightEntry"
+            FontFamily="serif"
+TextColor="#26320c"
             Placeholder="Enter body weight in KG"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center" 
+            HorizontalTextAlignment="Center"/>
         <Button
             x:Name="CreateUserBtn"
             Text="Create user"
+            FontFamily="serif"
+TextColor="#26320c"
+BorderColor="#26320c"
             Clicked="OnCreateUserClicked"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center" 
+            WidthRequest="150"
+            HeightRequest="50"/>
     </VerticalStackLayout>
 </ContentPage>
