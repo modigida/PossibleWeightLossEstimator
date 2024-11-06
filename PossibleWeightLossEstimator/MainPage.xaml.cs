@@ -226,5 +226,41 @@ namespace PossibleWeightLossEstimator
                 await Navigation.PushAsync(new ChangeOrDeleteUser(this.user, this));
             }
         }
+        private async void OnInfoWeeksClicked(object sender, EventArgs e)
+        {
+            await DisplayAlert("Information", "Remember that slow and steady weight loss is more sustainable and delivers " +
+                "long-term results. Focusing on small, consistent changes will help you maintain your progress over time.", "Ok");
+        }
+        private async void OnInfoKgClicked(object sender, EventArgs e)
+        {
+            double weightLossPercentage = (TargetWeight / user.BodyWeight) * 100;
+            double weeklyWeightLossPercentage = weightLossPercentage / Weeks;
+            string recommendation = string.Empty;
+
+            if (weeklyWeightLossPercentage < 0.5)
+            {
+                recommendation = "Consider increasing your weight loss goal to make it more challenging and realistic for long-term results.";
+            }
+            else if (weeklyWeightLossPercentage >= 0.5 && weeklyWeightLossPercentage <= 1)
+            {
+                recommendation = "Continue with your current goal as it aligns with a healthy and sustainable weight loss rate.";
+            }
+            else if (weeklyWeightLossPercentage > 1)
+            {
+                recommendation = "You may want to lower your weight loss goal to ensure it's sustainable and healthy for long-term progress.";
+            }
+
+            string message = $"The general recommendation for healthy weight loss is 0.5 - 1 percent of body weight per week. " +
+                 $"\r\n\r\nYour current weight loss goal equals a weekly weight loss of {weeklyWeightLossPercentage:F2}%. {recommendation}";
+
+            await DisplayAlert("Weight Loss Recommendation", message, "Ok");
+        }
+        private async void OnInfoDeficitClicked(object sender, EventArgs e)
+        {
+            await DisplayAlert("Information", "A standard recommendation for adults is 2500 calories per day to maintain weight. " +
+                "For weight loss, a calorie deficit can be helpful:\r\n\r\n- Low: 250 calories below maintenance.\r\n- Medium: 500 calories " +
+                "below maintenance.\r\n- High: 750 calories below maintenance. Use these levels as a guideline, and adjust based on your " +
+                "individual needs and how your body responds.", "Ok");
+        }
     }
 }

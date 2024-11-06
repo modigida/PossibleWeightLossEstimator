@@ -55,16 +55,28 @@
                 </Grid.RowDefinitions>
 
                 <VerticalStackLayout Grid.Row="0">
-                <Label 
-                    x:Name="amountOfWeeksLabel"
-                    Text="weeks"
-                    HorizontalOptions="Center"
-                    FontSize="Medium"
-                    FontFamily="serif"
-                    TextColor="#26320c"
-                    Margin="0,0,0,40"/>
-
-                <Grid ColumnDefinitions="*,*,*,*,*,*,*,*,*,*,*,*,*"
+                    <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                        <Label 
+                            x:Name="amountOfWeeksLabel"
+                            Text="weeks"
+                            HorizontalOptions="Center"
+                            FontSize="Medium"
+                            FontFamily="serif"
+                            TextColor="#26320c"
+                            VerticalTextAlignment="Center"
+                            Margin="0,0,0,20"/>
+                        <Button 
+                            x:Name="InfoWeeksBtn"
+                            Text="{x:Static fa:FaSolid.CircleInfo}"
+                            FontSize="30"
+                            FontFamily="FontAwesomeSolid"
+                            TextColor="#26320c"
+                            Clicked="OnInfoWeeksClicked"
+                            Margin="10,0,0,20"
+                            BorderWidth="0"/>
+                    </HorizontalStackLayout>
+    
+                    <Grid ColumnDefinitions="*,*,*,*,*,*,*,*,*,*,*,*,*"
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="Center"
                     Margin="0,0,0,80">
@@ -175,14 +187,26 @@
                 </VerticalStackLayout>
 
                 <VerticalStackLayout Grid.Row="1">
-                <Label 
-                    x:Name="amountOfKgLabel"
-                    Text="kg"
-                    HorizontalOptions="Center"
-                    FontSize="Medium"
-                    FontFamily="serif"
-                    TextColor="#26320c"
-                    Margin="0,0,0,40"/>
+                    <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                        <Label 
+                            x:Name="amountOfKgLabel"
+                            Text="kg"
+                            HorizontalOptions="Center"
+                            FontSize="Medium"
+                            FontFamily="serif"
+                            VerticalTextAlignment="Center"
+                            TextColor="#26320c"
+                            Margin="0,0,0,20"/>
+                        <Button 
+                            x:Name="InfoKgBtn"
+                            Text="{x:Static fa:FaSolid.CircleInfo}"
+                            FontSize="30"
+                            FontFamily="FontAwesomeSolid"
+                            TextColor="#26320c"
+                            Clicked="OnInfoKgClicked"
+                            Margin="10,0,0,20"
+                            BorderWidth="0"/>
+                    </HorizontalStackLayout>
 
                 <Grid ColumnDefinitions="*,*,*,*,*,*,*,*,*,*,*,*,*"
                     HorizontalOptions="FillAndExpand"
@@ -297,14 +321,27 @@
                 </VerticalStackLayout>
 
                 <VerticalStackLayout Grid.Row="2">
-                <Label 
-                    x:Name="kcalLabel"
-                    Text="calorie deficit level"
-                    HorizontalOptions="Center"
-                    FontSize="Medium"
-                    FontFamily="serif"
-                    TextColor="#26320c"
-                    Margin="0,0,0,40"/>
+                    <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                        <Label 
+                            x:Name="kcalLabel"
+                            Text="calorie deficit level"
+                            HorizontalOptions="Center"
+                            FontSize="Medium"
+                            FontFamily="serif"
+                            VerticalTextAlignment="Center"
+                            TextColor="#26320c"
+                            Margin="0,0,0,20"/>
+                        <Button 
+                            x:Name="InfoDeficitBtn"
+                            Text="{x:Static fa:FaSolid.CircleInfo}"
+                            FontSize="30"
+                            FontFamily="FontAwesomeSolid"
+                            TextColor="#26320c"
+                            Clicked="OnInfoDeficitClicked"
+                            Margin="10,0,0,20"
+                            BorderWidth="0"/>
+                    </HorizontalStackLayout>
+                    
 
                 <Grid ColumnDefinitions="*,*,*"
                     HorizontalOptions="FillAndExpand"
