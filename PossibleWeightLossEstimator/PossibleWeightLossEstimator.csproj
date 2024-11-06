@@ -59,6 +59,10 @@
 	<MauiIcon Remove="Resources\Raw\apple.svg" />
 	  <None Remove="Resources\AppIcon\apple.svg" />
 	  <None Remove="Resources\AppIcon\weight.svg" />
+	  <None Remove="Resources\Fonts\fa-brands-400.ttf" />
+	  <None Remove="Resources\Fonts\fa-regular-400.ttf" />
+	  <None Remove="Resources\Fonts\fa-solid-900.ttf" />
+	  <None Remove="Resources\Fonts\fa-v4compatibility.ttf" />
 	  <None Remove="Resources\Splash\apple.jpg" />
 	  <None Remove="Resources\Splash\magnolia.jpg" />
 	  <None Remove="Resources\Splash\weight.jpg" />

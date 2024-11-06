@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PossibleWeightLossEstimator.CreateUser"
+             xmlns:fa="clr-namespace:PossibleWeightLossEstimator.FontAwesome"
              Title=" "
              BackgroundColor="WhiteSmoke">
     <VerticalStackLayout
@@ -24,14 +25,14 @@ TextColor="#26320c"
             HorizontalTextAlignment="Center"/>
         <Button
             x:Name="CreateUserBtn"
-            Text="Create user"
-            FontFamily="serif"
-TextColor="#26320c"
-BorderColor="#26320c"
+            Text="{x:Static fa:FaSolid.WindowRestore}"
+            FontSize="40"
+            FontFamily="FontAwesomeSolid"
+            TextColor="#26320c"
+            BorderColor="#26320c"
             Clicked="OnCreateUserClicked"
             VerticalOptions="Center" 
             HorizontalOptions="Center" 
-            WidthRequest="150"
-            HeightRequest="50"/>
+            WidthRequest="250"/>
     </VerticalStackLayout>
 </ContentPage>

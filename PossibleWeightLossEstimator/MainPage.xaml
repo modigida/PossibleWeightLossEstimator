@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PossibleWeightLossEstimator.MainPage"
+             xmlns:fa="clr-namespace:PossibleWeightLossEstimator.FontAwesome"
              BackgroundColor="WhiteSmoke">
 
     <Grid>
@@ -14,9 +15,9 @@
         <Grid Grid.Row="0" Margin="10">
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="55"/>
+                <ColumnDefinition Width="70"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="55"/>
+                <ColumnDefinition Width="70"/>
             </Grid.ColumnDefinitions>
             
             <Label 
@@ -32,15 +33,14 @@
             
             <Button 
                 x:Name="EditUserBtn"
-                Text="Edit"
-                FontFamily="serif"
+                Text="{x:Static fa:FaSolid.Gears}"
+                FontFamily="FontAwesomeSolid"
+                FontSize="40"
                 TextColor="#26320c"
                 BorderColor="#26320c"
                 Clicked="OnEditUserClicked"
                 Grid.Column="2"
-                HorizontalOptions="End"
-                WidthRequest="55"
-                HeightRequest="50"/>
+                HorizontalOptions="End"/>
 
         </Grid>
         
@@ -65,100 +65,100 @@
                     Margin="0,0,0,40"/>
 
                 <Grid ColumnDefinitions="*,*,*,*,*,*,*,*,*,*,*,*,*"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="Center"
-                Margin="0,0,0,80">
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"
+                    Margin="0,0,0,80">
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="0"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="0"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="1"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="1"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="2"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="2"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="3"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="3"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="4"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="4"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="5"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="5"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="6"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="6"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="7"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="7"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="8"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="8"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="9"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="9"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="10"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="10"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="11"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="11"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="12"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="12"/>
 
                     <Slider x:Name="weekSlider"
                         Minimum="4"
@@ -190,108 +190,108 @@
                     Margin="0,0,0,80">
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="0"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="0"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="1"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="1"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="2"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="2"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="3"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="3"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="4"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="4"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="5"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="5"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="6"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="6"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="7"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="7"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="8"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="8"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="9"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="9"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="10"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="10"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="11"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="11"/>
 
-                        <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="12"/>
+                    <BoxView WidthRequest="1"
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="12"/>
                     
-                        <Slider 
-                            x:Name="kgSlider"
-                            Minimum="0"
-                            Maximum="30"
-                            Value="0"
-                            ValueChanged="OnSliderKgChanged"
-                            Grid.ColumnSpan="13"
-                            VerticalOptions="Center"
-                            HorizontalOptions="Center"
-                            ThumbColor="#26320c"
-                            MinimumTrackColor="#26320c"
-                            WidthRequest="365"/>
+                    <Slider 
+                        x:Name="kgSlider"
+                        Minimum="0"
+                        Maximum="30"
+                        Value="0"
+                        ValueChanged="OnSliderKgChanged"
+                        Grid.ColumnSpan="13"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        ThumbColor="#26320c"
+                        MinimumTrackColor="#26320c"
+                        WidthRequest="365"/>
                     </Grid>
                     
                 </VerticalStackLayout>
@@ -307,41 +307,41 @@
                     Margin="0,0,0,40"/>
 
                 <Grid ColumnDefinitions="*,*,*"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="Center"
-                Margin="0,0,0,80">
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"
+                    Margin="0,0,0,80">
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="0"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="0"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="1"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="1"/>
 
                     <BoxView WidthRequest="1"
-                    HeightRequest="10"
-                    Color="#26320c"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Grid.Column="2"/>
+                        HeightRequest="10"
+                        Color="#26320c"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Grid.Column="2"/>
 
                     <Slider x:Name="deficitSlider"
-                    Minimum="1"
-                    Maximum="3"
-                    Value="1"
-                    ValueChanged="OnSliderDeficitChanged"
-                    Grid.ColumnSpan="3"
-                    VerticalOptions="Center"
-                    WidthRequest="270"
-                    MinimumTrackColor="#26320c"
-                    ThumbColor="#26320c"/>
+                        Minimum="1"
+                        Maximum="3"
+                        Value="1"
+                        ValueChanged="OnSliderDeficitChanged"
+                        Grid.ColumnSpan="3"
+                        VerticalOptions="Center"
+                        WidthRequest="270"
+                        MinimumTrackColor="#26320c"
+                        ThumbColor="#26320c"/>
                     
                 </Grid>
                 </VerticalStackLayout>
@@ -358,21 +358,20 @@
                 </VerticalStackLayout>
 
             </Grid>
-
         
         </VerticalStackLayout>
 
         <Button 
             x:Name="SaveSettingsBtn"
-            Text="Save"
-            FontFamily="serif"
+            Text="{x:Static fa:FaSolid.WindowRestore}"
+            FontSize="40"
+            FontFamily="FontAwesomeSolid"
             TextColor="#26320c"
             BorderColor="#26320c"
             Clicked="OnSaveSettingsClicked"
             VerticalOptions="End"
             HorizontalOptions="Center"
             WidthRequest="250"
-            HeightRequest="50"
             Grid.Row="2"
             Margin="10"/>
 
