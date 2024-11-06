@@ -17,8 +17,6 @@ namespace PossibleWeightLossEstimator
         public MainPage()
         {
             InitializeComponent();
-
-           
         }
         private async Task GetUser()
         {
@@ -44,6 +42,7 @@ namespace PossibleWeightLossEstimator
         {
             double weightLoss = weightLossCalculator.GetWeightLoss(calorieDeficitLevel, weeks);
             double updatedValue = GetNearestAllowedKgValue(weightLoss);
+            targetWeight = weightLoss;
             kgSlider.Value = updatedValue;
 
             MainThread.BeginInvokeOnMainThread(() =>
@@ -139,8 +138,11 @@ namespace PossibleWeightLossEstimator
                 kcalLabel.Text = $"{calorieDeficitLevel} calorie deficit level";
             });
 
-            UpdateWeekSlider();
-            UpdateTargetWeight();
+            if (calorieDeficitLevel != "Unknown")
+            {
+                UpdateWeekSlider();
+                UpdateTargetWeight();
+            }
         }
         protected override async void OnAppearing()
         {
