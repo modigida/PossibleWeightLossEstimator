@@ -7,9 +7,10 @@ namespace PossibleWeightLossEstimator
     public partial class MainPage : ContentPage
     {
         private User user = null;
-        private string calorieDeficitLevel = "Low";
-        private double weeks = 4;
-        private double targetWeight = 0;
+        public double Weeks { get; set; }
+        public double TargetWeight { get; set; }
+        public string CalorieDeficitLevel { get; set; }
+
         private CalculateWeightLoss weightLossCalculator = new CalculateWeightLoss();
         private readonly double[] allowedKgValues = { 0, 2.5, 5, 7.5, 10, 12.5, 15, 17.5, 20, 22.5, 25, 27.5, 30 };
         private readonly double[] allowedWeekValues = { 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52 };
@@ -17,6 +18,8 @@ namespace PossibleWeightLossEstimator
         public MainPage()
         {
             InitializeComponent();
+            Weeks = 4;
+            CalorieDeficitLevel = "Low";
         }
         private async Task GetUser()
         {
@@ -26,11 +29,11 @@ namespace PossibleWeightLossEstimator
                 await Navigation.PushAsync(new CreateUser("MainPage"));
             }
         }
-        private void UpdateWeekSlider()
+        public void UpdateWeekSlider()
         {
-            double weeksLeft = weightLossCalculator.GetWeeksForWeightLoss(calorieDeficitLevel, targetWeight);
+            double weeksLeft = weightLossCalculator.GetWeeksForWeightLoss(CalorieDeficitLevel, TargetWeight);
             double updatedValue = GetNearestAllowedWeekValue(weeksLeft);
-            weeks = weeksLeft;
+            Weeks = weeksLeft;
             weekSlider.Value = updatedValue;
 
             MainThread.BeginInvokeOnMainThread(() =>
@@ -38,11 +41,11 @@ namespace PossibleWeightLossEstimator
                 amountOfWeeksLabel.Text = $"{updatedValue} weeks";
             });
         }
-        private void UpdateKgSlider()
+        public void UpdateKgSlider()
         {
-            double weightLoss = weightLossCalculator.GetWeightLoss(calorieDeficitLevel, weeks);
+            double weightLoss = weightLossCalculator.GetWeightLoss(CalorieDeficitLevel, Weeks);
             double updatedValue = GetNearestAllowedKgValue(weightLoss);
-            targetWeight = weightLoss;
+            TargetWeight = weightLoss;
             kgSlider.Value = updatedValue;
 
             MainThread.BeginInvokeOnMainThread(() =>
@@ -88,7 +91,7 @@ namespace PossibleWeightLossEstimator
             isUpdating = true;
 
             double newValue = GetNearestAllowedWeekValue(e.NewValue);
-            weeks = newValue;
+            Weeks = newValue;
             weekSlider.Value = newValue;
 
             MainThread.BeginInvokeOnMainThread(() =>
@@ -107,7 +110,7 @@ namespace PossibleWeightLossEstimator
             isUpdating = true;
 
             double newValue = GetNearestAllowedKgValue(e.NewValue);
-            targetWeight = newValue;
+            TargetWeight = newValue;
             kgSlider.Value = newValue;
 
             MainThread.BeginInvokeOnMainThread(() =>
@@ -123,7 +126,7 @@ namespace PossibleWeightLossEstimator
         private void OnSliderDeficitChanged(object sender, ValueChangedEventArgs e)
         {
             int roundedValue = (int)Math.Round(e.NewValue);
-            calorieDeficitLevel = e.NewValue switch
+            CalorieDeficitLevel = e.NewValue switch
             {
                 1 => "Low",
                 2 => "Medium",
@@ -135,10 +138,10 @@ namespace PossibleWeightLossEstimator
 
             MainThread.BeginInvokeOnMainThread(() =>
             {
-                kcalLabel.Text = $"{calorieDeficitLevel} calorie deficit level";
+                kcalLabel.Text = $"{CalorieDeficitLevel} calorie deficit level";
             });
 
-            if (calorieDeficitLevel != "Unknown")
+            if (CalorieDeficitLevel != "Unknown")
             {
                 UpdateWeekSlider();
                 UpdateTargetWeight();
@@ -158,12 +161,12 @@ namespace PossibleWeightLossEstimator
 
                 if (settings != null)
                 {
-                    weeks = settings.Weeks;
-                    calorieDeficitLevel = settings.CalorieDeficitLevel;
-                    targetWeight = settings.TargetWeight;
+                    Weeks = settings.Weeks;
+                    CalorieDeficitLevel = settings.CalorieDeficitLevel;
+                    TargetWeight = settings.TargetWeight;
 
-                    weekSlider.Value = weeks;
-                    kgSlider.Value = targetWeight;
+                    weekSlider.Value = Weeks;
+                    kgSlider.Value = TargetWeight;
 
                     deficitSlider.Value = settings.CalorieDeficitLevel switch
                     {
@@ -179,14 +182,17 @@ namespace PossibleWeightLossEstimator
                 }
                 else
                 {
+                    weekSlider.Value = 4;
+                    kgSlider.Value = 0;
+                    deficitSlider.Value = 1;
                     targetWeightLabel.Text = $"Currect weight {user.BodyWeight}";
                 }
             }
         }
         private void UpdateTargetWeight()
         {
-            double estimatedWeight = user.BodyWeight - targetWeight;
-            var targetDate = DateTime.Today.AddDays(weeks * 7);
+            double estimatedWeight = user.BodyWeight - TargetWeight;
+            var targetDate = DateTime.Today.AddDays(Weeks * 7);
 
             string daySuffix = targetDate.Day switch
             {
@@ -204,7 +210,7 @@ namespace PossibleWeightLossEstimator
         {
             if (this.user != null)
             {
-                if (await App.DatabaseService.SaveUserSettings(this.user.Id, weeks, calorieDeficitLevel, targetWeight))
+                if (await App.DatabaseService.SaveUserSettings(this.user.Id, Weeks, CalorieDeficitLevel, TargetWeight))
                 {
                     DisplayMessage.Text = "Settings saved";
                     DisplayMessage.IsVisible = true;
@@ -217,7 +223,7 @@ namespace PossibleWeightLossEstimator
         {
             if (this.user != null)
             {
-                await Navigation.PushAsync(new ChangeOrDeleteUser(this.user));
+                await Navigation.PushAsync(new ChangeOrDeleteUser(this.user, this));
             }
         }
     }

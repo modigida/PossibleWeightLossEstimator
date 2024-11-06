@@ -2,11 +2,13 @@ namespace PossibleWeightLossEstimator;
 
 public partial class ChangeOrDeleteUser : ContentPage
 {
-    private User user = null;
-    
-    public ChangeOrDeleteUser(User user)
+    private User user;
+    private MainPage mainPage;
+
+    public ChangeOrDeleteUser(User user, MainPage mainPage)
 	{
         this.user = user;
+        this.mainPage = mainPage;
         InitializeComponent();
         ShowUser();
     }
